@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form name="person">
+        <label for="name">Name : </label>
+        <input type="text" name="name" placeholder="enter your name"/>
+        <label for="USN">USN : </label>
+        <input type="text" name="USN" placeholder="Enter your USN"/>
+        <button type="submit" onclick="display(event)">submit</button>
+    </form>
+
+    <script>
+        function display(e){
+            e.preventDefault();
+            const name = document.forms['person'].name.value;
+            const USN = document.forms['person'].USN.value;
+            alert(`Your name is ${name} and USN is ${USN}`);
+        }
+    </script>
+</body>
+</html>

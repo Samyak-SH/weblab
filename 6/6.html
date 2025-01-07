@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growing</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #text{
+            border: 1px solid black;
+            display: inline-block;
+            padding: 20px;
+            text-align: center;
+            transform: translate(-50%, -50%);
+            background-color: yellow;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p id="text">Inital Text</p>
+
+    <script>
+        const text = document.getElementById("text");
+        let fs = 20;
+        let fontIncrease = setInterval(inTimer, 1000);
+        let fontDecrease;
+        function inTimer(){
+            fs+=5;
+            text.style.fontSize = `${fs}px`; 
+            text.style.backgroundColor = "lightblue";
+            text.innerText = "text-growing";
+            if(fs>=50){
+                clearInterval(fontIncrease);
+                fontDecrease = setInterval(deTimer, 1000);
+            }
+        }
+        function deTimer(){
+            fs-=5;            
+            text.style.fontSize = `${fs}px`; 
+            text.style.backgroundColor = "red";
+            text.innerText = "text-shriking";
+            if(fs<=0){
+                clearInterval(fontDecrease);
+                fontIncrease = setInterval(inTimer, 1000);
+            }
+        }
+
+    </script>
+</body>
+</html>
